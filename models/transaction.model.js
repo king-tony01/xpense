@@ -8,6 +8,12 @@ export default class Transaction {
     );
     return rows;
   }
+  static async getByID(id) {
+    const [rows] = await pool.query("SELECT * FROM transactions WHERE id = ?", [
+      id,
+    ]);
+    return rows;
+  }
 
   static async create({ type, amount, category, description, user_id }) {
     const conn = await pool.getConnection();
