@@ -1,7 +1,6 @@
 import express from "express";
 import {
   getTransactions,
-  getTransaction,
   createTransaction,
   deleteTransaction,
   getSummary,
@@ -11,7 +10,6 @@ import { authMiddleware } from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
 router.get("/", authMiddleware, getTransactions);
-router.get("/:id", authMiddleware, getTransaction);
 router.post("/", authMiddleware, createTransaction);
 router.delete("/:id", authMiddleware, deleteTransaction);
 router.get("/summary", authMiddleware, getSummary);

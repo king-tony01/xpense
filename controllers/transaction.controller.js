@@ -9,15 +9,6 @@ export const getTransactions = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
-export const getTransaction = async (req, res) => {
-  try {
-    const id = req.params;
-    const transactions = await Transaction.getByID(id);
-    res.status(200).json({ success: true, data: transactions });
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
-  }
-};
 
 export const createTransaction = async (req, res) => {
   try {
